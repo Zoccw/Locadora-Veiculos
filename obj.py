@@ -83,7 +83,7 @@ class Carro(Veiculo):
 
     @property
     def motor(self):
-        return f'{self.__motor:.1f}'
+        return f'{self.__motor} CV'
     
     @motor.setter
     def motor(self, motor):

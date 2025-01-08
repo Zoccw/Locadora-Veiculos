@@ -38,11 +38,11 @@ class Locadora:
             return
         if select == True:
             for num, veiculo in enumerate(veiculos_list, start=1):
-                print(f'({num}) {veiculo}')
+                print(f'[{num}] {veiculo}')
             return self.selecionar(veiculos_list, "\nDigite o número do veículo que deseja selecionar: ")
         else:
             for num, veiculo in enumerate(veiculos_list, start=1):
-                print(f'({num}) {veiculo}')
+                print(f'[{num}] {veiculo}')
 
     def remover_veiculos(self):
             numero=self.listar_veiculos(select=True)
@@ -62,25 +62,28 @@ class Locadora:
         print("\nAtribudos disponíveis:\n")
         for atributo in veiculo.atributos().keys():
             print(atributo)
-        atributo = input("Digite o atributo que deseja editar: ")
+        atributo = input("\nDigite o atributo que deseja editar: ")
         if atributo in veiculo.atributos().keys():
             if atributo == 'tipo':
-                print('Não é possível mudar o tipo do veículo. Caso queira modificá-lo, remova o veículo e adicione-o novamente.')
-            elif atributo in ['quantidade', 'cilindradas']:
+                print('\nNão é possível mudar o tipo do veículo. Caso queira modificá-lo, remova o veículo e adicione-o novamente.')
+            elif atributo in ['quantidade', 'cilindradas', 'motor']:
                 novo_valor = self.validar_valor(f"Digite o novo valor para {atributo}: ")
-                print(f"Veículo editado com sucesso!")
+                setattr(veiculo, atributo, novo_valor)
+                print(f"\nVeículo editado com sucesso!")
             elif atributo == 'ano':
                 novo_valor = self.validar_valor(f"Digite o novo valor para {atributo}: ", is_year=True)
-                print(f"Veículo editado com sucesso!")
-            elif atributo in ['valor', 'motor']:
+                setattr(veiculo, atributo, novo_valor)
+                print(f"\nVeículo editado com sucesso!")
+            elif atributo == 'valor':
                 novo_valor = self.validar_valor(f"Digite o novo valor para {atributo}: ", is_float=True)
-                print(f"Veículo editado com sucesso!")
+                setattr(veiculo, atributo, novo_valor)
+                print(f"\nVeículo editado com sucesso!")
             else:
                 novo_valor = self.validar_nome('valor', f'Digite um novo valor para {atributo}: ')
                 setattr(veiculo, atributo, novo_valor)
-                print(f"Veículo editado com sucesso!")
+                print(f"\nVeículo editado com sucesso!")
         else:
-            print("Atributo não encontrado")
+            print("\nAtributo não encontrado")
         
     def mostrar_clientes(self, cliente):
         def formatar_data(data):
@@ -104,11 +107,11 @@ class Locadora:
             return
         if select == True:
             for num, cliente in enumerate(clientes_list, start=1):
-                print(f'({num}) {cliente}')
+                print(f'[{num}] {cliente}')
             return self.selecionar(clientes_list, "\nDigite o número do cliente que deseja selecionar: ")
         else:
             for num, cliente in enumerate(clientes_list, start=1):
-                print(f'({num}) {cliente}')
+                print(f'[{num}] {cliente}')
 
     def remover_clientes(self):
         numero=self.listar_clientes(select=True)
@@ -148,22 +151,20 @@ class Locadora:
         print("\nAtribudos disponíveis:\n")
         for atributo in cliente.atributos().keys():
             print(atributo)
-        while True:
-            atributo = input("Digite o atributo que deseja editar: ").lower()
-            if atributo in cliente.atributos().keys():
-                if atributo in ['veiculo alugado', 'data de devolução']:
-                    print("Não é possível editar esse atributo, caso queira muda-lo utilize a função alugar ou devolver veículo")
-                elif atributo == 'telefone':
-                    novo_valor = self.validar_telefone('Digite o novo valor para telefone: ')
-                    print('Clinte editado com sucesso!')
-                    break
-                else:
-                    novo_valor = input(f"Digite o novo valor para {atributo}: ")
-                    setattr(cliente, atributo, novo_valor)
-                    print("Cliente editado com sucesso!")
-                    break
+        atributo = input("\nDigite o atributo que deseja editar: ").lower()
+        if atributo in cliente.atributos().keys():
+            if atributo in ['veiculo alugado', 'data de devolução']:
+                print("\nNão é possível editar esse atributo, caso queira muda-lo utilize a função alugar ou devolver veículo")
+            elif atributo == 'telefone':
+                novo_valor = self.validar_telefone('Digite o novo valor para telefone: ')
+                setattr(cliente, atributo, novo_valor)
+                print('\nCliente editado com sucesso!')
             else:
-                print("Atributo não encontrado")
+                novo_valor = input(f"Digite o novo valor para {atributo}: ")
+                setattr(cliente, atributo, novo_valor)
+                print("\nCliente editado com sucesso!")
+        else:
+            print("Atributo não encontrado")
         
 
     def alugar_veiculo(self):
@@ -185,7 +186,7 @@ class Locadora:
             data_retorno= data_aluguel + timedelta(days=dias)
             custo_total = veiculo.valor * dias
             while True:
-                print(f"\nO custo total vai ser de R${custo_total} e terá que ser devolvido na data {data_retorno.strftime('%d/%m/%Y')}")
+                print(f"\nO custo total vai ser de R${custo_total:.2f} e terá que ser devolvido na data {data_retorno.strftime('%d/%m/%Y')}")
                 decisão=input("Aceitar? (S/N):").lower().strip()
                 if decisão == "s":
                     cliente.data_devolucao.append(data_retorno)
@@ -211,8 +212,8 @@ class Locadora:
             print("Este cliente não possui veículos alugados.")
             return
         print("\nVeículos alugados:")
-        for i, veiculo_marca in enumerate(cliente.veiculo_alugado, 1):
-            print(f"({i}) {veiculo_marca}")
+        for i, (veiculo_marca, veiculo_data_devolucao) in enumerate(zip(cliente.veiculo_alugado, cliente.data_devolucao), 1):
+            print(f"[{i}] Modelo: {veiculo_marca} Devolução: {veiculo_data_devolucao.strftime('%d/%m/%Y')}")
         numero_veiculo = self.selecionar(cliente.veiculo_alugado,"\nDigite o número do veículo que deseja devolver: ")
         modelo_devolvido = cliente.veiculo_alugado.pop(numero_veiculo-1)
         cliente.data_devolucao.pop(numero_veiculo-1) 
@@ -225,7 +226,7 @@ class Locadora:
         while True:
             valor = input(prompt).strip()
             try:
-                if "." in valor and is_year==False and is_float == True:
+                if is_year==False and is_float == True:
                     valor = float(valor)
                 else:
                     valor = int(valor)
@@ -242,8 +243,8 @@ class Locadora:
     @staticmethod
     def validar_nome(designacao, prompt):
         while True:
-            nome=str(input(prompt))
-            if not nome.strip():
+            nome=str(input(prompt)).strip()
+            if not nome:
                 print(f'Digite um {designacao} válido')
             else:
                 return nome

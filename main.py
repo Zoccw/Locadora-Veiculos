@@ -1,5 +1,4 @@
 from param import *
-from obj import *
 from serializacao import *
 
 serializar = Serializar()
@@ -31,9 +30,12 @@ while True:
                 break
 
             elif sub_opcao == '1':
-                tipo = input("\nDigite o tipo de veículo (Carro ou Moto): ").strip().lower()
-                marca = input("Digite a marca do veículo: ")
-                modelo = input("Digite o modelo do veículo: ")
+                tipo = locadora.validar_nome('tipo', 'Digite o tipo do veículo (moto ou carro): ')
+                if tipo not in ['carro', 'moto']:
+                    print('Tipo de veículo inválido. Escolha entre moto ou carro')
+                    continue
+                marca = locadora.validar_nome('marca', 'Digite a marca do veículo: ')
+                modelo = locadora.validar_nome('modelo', 'Digite o modelo do veículo: ')
                 ano = locadora.validar_valor('Digite o ano do veículo: ', is_year=True)
                 quantidade = locadora.validar_valor('Digite a quantidade do veículo: ')
                 while True:
@@ -44,14 +46,11 @@ while True:
                         print("Cor inválida.")
                 valor = locadora.validar_valor('Digite o valor do aluguel do veículo por dia: ', is_float=True)
                 if tipo == 'carro':
-                    motor = locadora.validar_valor('Digite a potência do motor: ', is_float=True)
+                    motor = locadora.validar_valor('Digite a potência do motor: ')
                     veiculo = Carro(marca, modelo, ano, quantidade, cor, motor, valor, tipo)
                 elif tipo == 'moto':
-                    cilindradas = locadora.validar_valor('Digite a cilindradas do motor: ')
+                    cilindradas = locadora.validar_valor('Digite a cilindradas da moto: ')
                     veiculo = Moto(marca, modelo, ano, quantidade, cor, cilindradas, valor, tipo)
-                else:
-                    print("Tipo de veículo inválido. Escolha entre moto ou carro")
-                    continue
                 locadora.add_veiculos(veiculo)
                 print('\n Veículo adicionado')
 
@@ -60,7 +59,6 @@ while True:
 
             elif sub_opcao == '3':
                 locadora.remover_veiculos()
-
 
             elif sub_opcao == '4':
                 locadora.editar_veiculos()
