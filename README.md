@@ -31,7 +31,7 @@ mostrar_veiculo.
 -Edita os veículos com o método editar_veiculos que lista os veiculos e seleciona o número do veículo através de listar_veiculos(select=True) e após isso mostra
 todos os atributos da classe veículos e apresenta um input para selecionar o atributo e muda-lo.
 
-*alguns atributos não podem ser mudados, pois poderiam causar erros, o atributo da classe veiculos que não pode ser mudado é *tipo*.
+*alguns atributos não podem ser mudados, pois poderiam causar erros, o atributo da classe veiculos que não pode ser mudado é tipo*.
 
 Ao acessar o menu de Clientes vão aparecer as opções:
 
