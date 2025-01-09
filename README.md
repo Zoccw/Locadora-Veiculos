@@ -48,7 +48,7 @@ mostrar_clientes.
 
 (4) Editar clientes
 
--Edita os clientes com o método editar_clientes que lista os clientes e seleciona o número do cliente através de listar_veiculos(select=True) e após isso mostra
+- Edita os clientes com o método editar_clientes que lista os clientes e seleciona o número do cliente através de listar_veiculos(select=True) e após isso mostra
 todos os atributos da classe clientes e apresenta um input para selecionar o atributo e muda-lo.
 
 **Alguns atributos não podem ser mudados, pois poderiam causar erros, os atributo da classe clientes que não pode ser mudado é *veiculo alugado e data de devolução.**
@@ -57,7 +57,7 @@ todos os atributos da classe clientes e apresenta um input para selecionar o atr
 
 (1) Alugar veículo
 
--Mostra a lista de clientes cadastrado e de veiculos, selecionar o cliente e o veículo faz com que o software peça a quantidade de dias que o veículo vai ser alugado e calcula o valor total e pergunta se você concorda em alugar o carro, após esse processo o veículo é atribuido ao cliente e subtraido da quantidade. Ao acessar listar clientes será possível visualizar os veículos alugados e as datas de devolução para determindo cliente.
+- Mostra a lista de clientes cadastrado e de veiculos, selecionar o cliente e o veículo faz com que o software peça a quantidade de dias que o veículo vai ser alugado e calcula o valor total e pergunta se você concorda em alugar o carro, após esse processo o veículo é atribuido ao cliente e subtraido da quantidade. Ao acessar listar clientes será possível visualizar os veículos alugados e as datas de devolução para determindo cliente.
 
 **Veículos que possuem a quantidade=0 vão aparecer como "Todos os veículos deste modelo estão alugados." no atributo de quantidade e não poderam ser alugados.**
 
