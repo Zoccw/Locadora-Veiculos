@@ -1,4 +1,4 @@
-#Locadora de Veículos
+# Locadora de Veículos
 Este software que eu desenvolvi ele tem o intuito de catalogar carros e o aluguel desses carros 
 
 - Ao inicia-lo você será capaz de definir um nome a locadora
@@ -10,7 +10,7 @@ Este software que eu desenvolvi ele tem o intuito de catalogar carros e o alugue
 (4) Alugar
 (0) Sair e Salvar
 
-##Ao acessar o menu de Veículos vão aparecer as opções:
+## Ao acessar o menu de Veículos vão aparecer as opções:
 
 (1) Adicionar veículos
 
