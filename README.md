@@ -51,7 +51,7 @@ através de `locadora.add_clientes(cliente)`.
 - Edita os clientes com o método `editar_clientes()` que lista os clientes e seleciona o número do cliente através de `listar_veiculos(select=True)` e após isso mostra
 todos os atributos da classe clientes e apresenta um input para selecionar o atributo e muda-lo.
 
-**Alguns atributos não podem ser mudados, pois poderiam causar erros, os atributo da classe clientes que não pode ser mudado é *veiculo alugado e data de devolução.**
+**Alguns atributos não podem ser mudados, pois poderiam causar erros, os atributo da classe clientes que não pode ser mudado é veiculo alugado e data de devolução.**
 
 ### Ao acessar o menu de Alugar vão aparecer as seguinte opções:
 
