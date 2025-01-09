@@ -8,22 +8,22 @@ Este software que eu desenvolvi ele tem o intuito de catalogar carros e o alugue
 (1) Adicionar veículos
 
 - Ao adicionar veiculos inputs vão aparecer para colocar cada carácteristica do veículo que deseja adicionar e deposita esse veículo em uma lista através de 
-locadora.add_veiculos(veiculo).
+`locadora.add_veiculos(veiculo)`.
 
 **Fique atento ao adicionar veículos para selecionar o tipo certo de veículo (carro ou moto), pois caso o contrário a adição do veículo será cancelada.**
 
 (2) Listar veículos
 
-- Acessar a opção listar veículos lista os veículos através da função locadora.listar_veiculos() que acessa a lista de veículos e mostra eles através da função 
-mostrar_veiculo.
+- Acessar a opção listar veículos lista os veículos através da função `locadora.listar_veiculos()` que acessa a lista de veículos e mostra eles através da função 
+`mostrar_veiculo()`.
 
 (3) Remover veículos
 
-- Remove veículos ao chamar a lista de veículos com listar_veiculos() e seleciona um número da lista através da função listar_veiculos(select=True) tirando o veículo da lista através de .pop().
+- Remove veículos ao chamar a lista de veículos com `listar_veiculos()` e seleciona um número da lista através da função `listar_veiculos(select=True)` tirando o veículo da lista através de `.pop()`.
 
 (4) Editar veículos
 
-- Edita os veículos com o método editar_veiculos que lista os veiculos e seleciona o número do veículo através de listar_veiculos(select=True) e após isso mostra
+- Edita os veículos com o método `editar_veiculos()` que lista os veiculos e seleciona o número do veículo através de `listar_veiculos(select=True)` e após isso mostra
 todos os atributos da classe veículos e apresenta um input para selecionar o atributo e muda-lo.
 
 **Alguns atributos não podem ser mudados, pois poderiam causar erros, o atributo da classe veiculos que não pode ser mudado é tipo.**
@@ -33,22 +33,22 @@ todos os atributos da classe veículos e apresenta um input para selecionar o at
 (1) Adicionar clientes
 
 - Ao adicionar clientes como em veículos inputs vão aparecer para colocar cada carácteristica do cliente que deseja adicionar e deposita esse cliente em uma lista 
-através de locadora.add_clientes(cliente).
+através de `locadora.add_clientes(cliente)`.
 
 **Atenção para colocar 11 digitos no telefone.**
 
 (2) Listar clientes
 
-- Acessar a opção listar clientes lista os clientes através da função locadora.listar_clientes() que acessa a lista de clientes e mostra eles através da função 
-mostrar_clientes.
+- Acessar a opção listar clientes lista os clientes através da função `locadora.listar_clientes()` que acessa a lista de clientes e mostra eles através da função 
+`mostrar_clientes()`.
 
 (3) Remover clientes
 
-- Remove clientes ao chamar a lista de clientes com listar_clientes() e seleciona um número da lista através da função listar_clientes(select=True) tirando o cliente da lista através de .pop().
+- Remove clientes ao chamar a lista de clientes com `listar_clientes()` e seleciona um número da lista através da função `listar_clientes(select=True)` tirando o cliente da lista através de `.pop()`.
 
 (4) Editar clientes
 
-- Edita os clientes com o método editar_clientes que lista os clientes e seleciona o número do cliente através de listar_veiculos(select=True) e após isso mostra
+- Edita os clientes com o método `editar_clientes()` que lista os clientes e seleciona o número do cliente através de `listar_veiculos(select=True)` e após isso mostra
 todos os atributos da classe clientes e apresenta um input para selecionar o atributo e muda-lo.
 
 **Alguns atributos não podem ser mudados, pois poderiam causar erros, os atributo da classe clientes que não pode ser mudado é *veiculo alugado e data de devolução.**
@@ -67,4 +67,5 @@ todos os atributos da classe clientes e apresenta um input para selecionar o atr
 
 - Mostra a lista de clientes e de veículos alugados (caso o cliente tenha alugado algum veículo) e pede para selecionar o veículo que deseja devolver adicionando a quantidade do veículo devolta e retirando o veículo da lista de veículos alugados pelo cliente.
 
-**O software é salvo automáticamente ao sair e é carregado ao entrar devolta nele.**
+[!NOTE]
+O software é salvo automáticamente ao sair e é carregado ao entrar de volta nele.
