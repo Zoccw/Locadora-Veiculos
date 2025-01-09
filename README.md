@@ -65,6 +65,6 @@ todos os atributos da classe clientes e apresenta um input para selecionar o atr
 
 (2) Devolver veiculo
 
--Mostra a lista de clientes e de veículos alugados (caso o cliente tenha alugado algum veículo) e pede para selecionar o veículo que deseja devolver adicionando a quantidade do veículo devolta e retirando o veículo da lista de veículos alugados pelo cliente.
+- Mostra a lista de clientes e de veículos alugados (caso o cliente tenha alugado algum veículo) e pede para selecionar o veículo que deseja devolver adicionando a quantidade do veículo devolta e retirando o veículo da lista de veículos alugados pelo cliente.
 
 **O software é salvo automáticamente ao sair e é carregado ao entrar devolta nele.**
